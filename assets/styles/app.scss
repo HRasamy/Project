@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import "variables";
+@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap-icons/font/bootstrap-icons";
+
+
+body {
+    text-shadow: 0 .05rem .1rem #fff;
+    box-shadow: inset 0 0 5rem rgba(149, 121, 158, 0.5);
+  }
+  
+  .cover-container {
+    max-width: 42em;
+  }
+
+.logo {
+    position: relative;
+    right: 3.9%;
+    top: 4%;
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+
+}  

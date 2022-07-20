@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+    <img src="{{ asset('build/images/logo.png') }}" alt="logo" class=" logo d-inline-block align-text-top fs-4 "/>
+        <div class="row">
+            <div class="col-sm-6 offset-lg-3">
+                <div class="card">
+                    <div class="card-body">
+                        <main class="px-3">
+                            <h1 class="card-title">
+                                Bienvenue sur Petits Pieds
+                            </h1>
+                            <p class="lead">
+                                Petit pied est un interface qui permet de suivre 
+                                    les activités de son enfant avec sa nourisse. 
+                            </p>
+                            <p class="lead">
+                                <a href="#" class="btn btn-primary">
+                                    Connexion
+                                </a>
+                            </p>
+                        </main>
+                    </div>
+                </div>
+            </div>
+
+        {% endblock %}
+        
