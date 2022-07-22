@@ -2,21 +2,28 @@
 
 namespace App\Entity;
 
-use App\Repository\KidRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\KidRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: KidRepository::class)]
 class Kid
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column()]
-    private ?int $id = null;
+    #[ORM\Column(type:'integer')]
+    private int $id;
 
-    #[ORM\Column(length: 255)]
-    private ?string $name = null;
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    #[Assert\NotBlank(message: 'Merci de renseigner un nom')]
+    private string $name;
+
+    #[ORM\Column(type: 'date', nullable: true)]
+    private $birthDate;
 
     #[ORM\ManyToOne(inversedBy: 'kids')]
     private ?User $user = null;
@@ -84,6 +91,26 @@ class Kid
                 $event->setKid(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * Get the value of birthDate
+     */ 
+    public function getBirthDate()
+    {
+        return $this->birthDate;
+    }
+
+    /**
+     * Set the value of birthDate
+     *
+     * @return  self
+     */ 
+    public function setBirthDate($birthDate)
+    {
+        $this->birthDate = $birthDate;
 
         return $this;
     }
